@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Makeup & Waxing Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #FFFFFF;
+            --secondary-bg: #F9F8F6;
+            --accent: #D4C3B3;
+            --text-main: #2D2D2D;
+            --text-light: #6B7280;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
+                        url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+            background-color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .booking-modal {
+            display: none;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+        }
+
+        .sticky-nav {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 sticky-nav border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-widest serif uppercase">Esthetics.</div>
+            <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-semibold">
+                <a href="#about" class="hover:text-gray-400 transition">About</a>
+                <a href="#services" class="hover:text-gray-400 transition">Services</a>
+                <a href="#booking" class="hover:text-gray-400 transition">Book Now</a>
+            </div>
+            <button onclick="toggleBooking()" class="bg-black text-white px-6 py-2 text-xs uppercase tracking-widest hover:bg-gray-800 transition">
+                Book
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="h-screen flex items-center justify-center hero-gradient text-center px-6">
+        <div class="max-w-3xl">
+            <span class="uppercase tracking-[0.3em] text-sm mb-4 block text-gray-500">Professional Artistry & Care</span>
+            <h1 class="text-5xl md:text-7xl mb-6">Enhancing your natural confidence.</h1>
+            <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
+                Expert makeup artistry and precision waxing services based on 11 years of professional experience.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#services" class="border border-black px-10 py-4 uppercase text-xs tracking-widest hover:bg-black hover:text-white transition">View Services</a>
+                <a href="#booking" class="bg-black text-white px-10 py-4 uppercase text-xs tracking-widest hover:bg-gray-800 transition">Schedule Appointment</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1595475243692-392923fa62da?auto=format&fit=crop&q=80&w=800" alt="Professional Studio" class="rounded-sm shadow-xl">
+                <div class="absolute -bottom-6 -right-6 bg-[#F9F8F6] p-8 hidden md:block border border-gray-100">
+                    <p class="serif text-3xl italic">11 Years</p>
+                    <p class="text-xs uppercase tracking-widest text-gray-500">Experience</p>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-4xl mb-6">The Journey</h2>
+                <div class="space-y-4 text-gray-600 leading-relaxed">
+                    <p>
+                        My journey in beauty began over a decade ago. A proud graduate of <strong>Dudley College (2021)</strong>, I have been perfecting my makeup craft for 11 years, helping clients shine for their most precious moments.
+                    </p>
+                    <p>
+                        In 2020, I expanded my expertise into specialized waxing services to provide a holistic beauty experience. I am deeply passionate about making every client feel comfortable, confident, and radiant in their own skin.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-[#F9F8F6]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl mb-4">Our Services</h2>
+                <div class="w-20 h-px bg-black mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Makeup -->
+                <div>
+                    <h3 class="text-2xl mb-8 flex items-center">
+                        <span class="mr-4">01</span> Makeup Artistry
+                    </h3>
+                    <div class="service-card p-6 bg-white rounded-sm mb-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-semibold uppercase tracking-wide">Full Face Application</h4>
+                            <span class="font-serif text-lg">$100</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-4">1 hour 30 min session focusing on a flawless finish tailored to your needs.</p>
+                        <ul class="text-xs text-gray-400 space-y-1">
+                            <li>+ $10 extra for Glitter & Rhinestones</li>
+                        </ul>
+                        <button onclick="openBooking('Full Face Makeup')" class="mt-4 text-xs uppercase tracking-widest border-b border-black pb-1 hover:text-gray-500 hover:border-gray-500 transition">Book This</button>
+                    </div>
+                </div>
+
+                <!-- Waxing -->
+                <div>
+                    <h3 class="text-2xl mb-8 flex items-center">
+                        <span class="mr-4">02</span> Precision Waxing
+                    </h3>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="service-card p-4 bg-white rounded-sm flex justify-between items-center">
+                            <div>
+                                <h4 class="text-sm font-semibold uppercase tracking-wide">Under Arms</h4>
+                            </div>
+                            <span class="font-serif">$60</span>
+                        </div>
+                        <div class="service-card p-4 bg-white rounded-sm flex justify-between items-center">
+                            <div>
+                                <h4 class="text-sm font-semibold uppercase tracking-wide">Brazilian</h4>
+                            </div>
+                            <span class="font-serif">$80</span>
+                        </div>
+                        <div class="service-card p-4 bg-white rounded-sm flex justify-between items-center">
+                            <div>
+                                <h4 class="text-sm font-semibold uppercase tracking-wide">Bikini</h4>
+                            </div>
+                            <span class="font-serif">$60</span>
+                        </div>
+                        <div class="service-card p-4 bg-white rounded-sm flex justify-between items-center">
+                            <div>
+                                <h4 class="text-sm font-semibold uppercase tracking-wide">Half Legs</h4>
+                            </div>
+                            <span class="font-serif">$70</span>
+                        </div>
+                        <div class="service-card p-4 bg-white rounded-sm flex justify-between items-center">
+                            <div>
+                                <h4 class="text-sm font-semibold uppercase tracking-wide">Full Leg</h4>
+                            </div>
+                            <span class="font-serif">$90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="booking" class="py-24 bg-white">
+        <div class="max-w-xl mx-auto px-6 border border-gray-100 p-8 md:p-12 shadow-sm">
+            <h2 class="text-3xl text-center mb-8">Request Appointment</h2>
+            <form id="appointmentForm" class="space-y-6" onsubmit="handleForm(event)">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-gray-400 mb-2">First Name</label>
+                        <input type="text" required class="w-full border-b border-gray-200 py-2 focus:outline-none focus:border-black transition">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-gray-400 mb-2">Email</label>
+                        <input type="email" required class="w-full border-b border-gray-200 py-2 focus:outline-none focus:border-black transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] uppercase tracking-widest text-gray-400 mb-2">Service</label>
+                    <select id="serviceSelect" required class="w-full border-b border-gray-200 py-2 focus:outline-none focus:border-black transition bg-transparent" onchange="updateTotal()">
+                        <option value="">Select a service</option>
+                        <option value="100">Full Face Makeup - $100</option>
+                        <option value="60">Under Arms Wax - $60</option>
+                        <option value="80">Brazilian Wax - $80</option>
+                        <option value="60">Bikini Wax - $60</option>
+                        <option value="70">Half Legs Wax - $70</option>
+                        <option value="90">Full Leg Wax - $90</option>
+                    </select>
+                </div>
+
+                <div id="glitterOption" class="hidden flex items-center space-x-3 py-2">
+                    <input type="checkbox" id="glitterCheck" class="w-4 h-4 accent-black" onchange="updateTotal()">
+                    <label for="glitterCheck" class="text-sm text-gray-600">Add Glitter & Rhinestones (+$10)</label>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] uppercase tracking-widest text-gray-400 mb-2">Preferred Date</label>
+                    <input type="date" required class="w-full border-b border-gray-200 py-2 focus:outline-none focus:border-black transition">
+                </div>
+
+                <div class="bg-gray-50 p-4 flex justify-between items-center">
+                    <span class="text-xs uppercase tracking-widest font-semibold">Estimated Total</span>
+                    <span id="totalPrice" class="text-xl serif">$0</span>
+                </div>
+
+                <button type="submit" class="w-full bg-black text-white py-4 uppercase text-xs tracking-[0.2em] hover:bg-gray-800 transition">Confirm Booking Request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white border-t border-gray-100 text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-2xl serif mb-4">Esthetics.</p>
+            <p class="text-xs text-gray-400 uppercase tracking-widest mb-8">© 2024 Professional Beauty Services. All Rights Reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-black transition text-sm">Instagram</a>
+                <a href="#" class="text-gray-400 hover:text-black transition text-sm">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Message (Floating) -->
+    <div id="successMsg" class="fixed bottom-10 right-10 bg-black text-white px-8 py-4 rounded-sm shadow-2xl transform translate-y-32 transition-transform duration-500 z-[100]">
+        <p class="text-xs uppercase tracking-widest">Request Sent Successfully</p>
+    </div>
+
+    <script>
+        const serviceSelect = document.getElementById('serviceSelect');
+        const glitterOption = document.getElementById('glitterOption');
+        const glitterCheck = document.getElementById('glitterCheck');
+        const totalPriceDisplay = document.getElementById('totalPrice');
+
+        function updateTotal() {
+            let base = parseInt(serviceSelect.value) || 0;
+            
+            // Show glitter option only for makeup (first option in our logic)
+            if (serviceSelect.selectedIndex === 1) {
+                glitterOption.classList.remove('hidden');
+            } else {
+                glitterOption.classList.add('hidden');
+                glitterCheck.checked = false;
+            }
+
+            if (glitterCheck.checked) {
+                base += 10;
+            }
+
+            totalPriceDisplay.innerText = `$${base}`;
+        }
+
+        function handleForm(e) {
+            e.preventDefault();
+            const success = document.getElementById('successMsg');
+            success.classList.remove('translate-y-32');
+            
+            setTimeout(() => {
+                success.classList.add('translate-y-32');
+                e.target.reset();
+                updateTotal();
+            }, 3000);
+        }
+
+        function openBooking(serviceName) {
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            // Logic to auto-select would go here
+        }
+    </script>
+</body>
+</html>
